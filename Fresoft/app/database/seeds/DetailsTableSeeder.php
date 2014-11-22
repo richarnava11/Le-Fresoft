@@ -7,14 +7,10 @@ class DetailsTableSeeder extends Seeder {
 
 	public function run()
 	{
-		$faker = Faker::create();
+		$details = array(['id' => 1, 'cantidadkg' => 1, 'importe' => 50.1, 'exit_id' => 1, 'product_id' => 1, 
+			'created_at' => new DateTime, 'updated_at' => new DateTime]);
 
-		foreach(range(1, 10) as $index)
-		{
-			Detail::create([
-
-			]);
-		}
+		DB::table('details')->insert($details);
 	}
 
 }

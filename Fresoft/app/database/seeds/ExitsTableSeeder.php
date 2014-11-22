@@ -7,14 +7,12 @@ class ExitsTableSeeder extends Seeder {
 
 	public function run()
 	{
-		$faker = Faker::create();
+		
+		$exits = array (['id' => 1, 'importe' => 20.1, 'pesototal' => 1, 'user_id' => 1, 
+			'created_at' => new DateTime, 'updated_at' => new DateTime]);
 
-		foreach(range(1, 10) as $index)
-		{
-			Exit::create([
+		DB::table('exits')->insert($exits);
 
-			]);
-		}
 	}
 
 }
