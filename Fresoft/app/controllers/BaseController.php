@@ -3,7 +3,10 @@
 class BaseController extends Controller {
 
 	protected $layout = 'layouts.main';
+<<<<<<< HEAD
+=======
 	
+>>>>>>> richi
 	/**
 	 * Setup the layout used by the controller.
 	 *
