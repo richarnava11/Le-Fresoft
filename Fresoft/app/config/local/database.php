@@ -25,7 +25,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'db_fresoft',
 			'username'  => 'root',
-			'password'  => 'ricardo',
+			'password'  => 'emi300594',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

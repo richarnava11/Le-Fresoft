@@ -1,1 +1,0 @@
-/home/rricardo/Git-Fresoft/Fresoft/app/views/products/show.blade.php

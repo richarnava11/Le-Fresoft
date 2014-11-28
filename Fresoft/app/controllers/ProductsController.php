@@ -10,7 +10,8 @@ class ProductsController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$products = Product::all();
+		$this->layout->content = View::make('products.index', compact('products'));
 	}
 
 	/**
@@ -19,9 +20,10 @@ class ProductsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create(Product $product)
 	{
-		//
+		$this->layout->content =
+		View::make('products.create', compact('product'));
 	}
 
 	/**
@@ -32,41 +34,47 @@ class ProductsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		//almacenar el nuevo Producto
+		$input = Input::all();
+		$input ['user_id'] =1;//autor temporal
+		Product::create( $input );
+
+		return Redirect::route('products.index')
+		->with('message', 'El nuevo Producto se ha almacenado ');
 	}
 
 	/**
 	 * Display the specified resource.
 	 * GET /products/{id}
 	 *
-	 * @param  int  $id
+	 * @param  Product  $product
 	 * @return Response
 	 */
-	public function show($id)
+	public function show(Product $product)
 	{
-		//
+		$this->layout->content = View::make('products.show', compact('product'));
 	}
 
 	/**
 	 * Show the form for editing the specified resource.
 	 * GET /products/{id}/edit
 	 *
-	 * @param  int  $id
+	 * @param  Product  $product
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit(Product  $product)
 	{
-		//
+		
 	}
 
 	/**
 	 * Update the specified resource in storage.
 	 * PUT /products/{id}
 	 *
-	 * @param  int  $id
+	 * @param  Product  $product
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Product  $product)
 	{
 		//
 	}
@@ -75,10 +83,10 @@ class ProductsController extends \BaseController {
 	 * Remove the specified resource from storage.
 	 * DELETE /products/{id}
 	 *
-	 * @param  int  $id
+	 * @param  Product  $product
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy(Product  $product)
 	{
 		//
 	}

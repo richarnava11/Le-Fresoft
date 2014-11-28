@@ -7,14 +7,12 @@ class EntrancesTableSeeder extends Seeder {
 
 	public function run()
 	{
-		$faker = Faker::create();
+		
+		$entrances = array (['id' => 1, 'entradakg' => 25, 'product_id' => 1, 'user_id' => 1, 
+			'created_at' => new DateTime, 'updated_at' => new DateTime]);
 
-		foreach(range(1, 10) as $index)
-		{
-			Entrance::create([
+		DB::table('entrances')->insert($entrances);
 
-			]);
-		}
 	}
 
 }
