@@ -10,7 +10,8 @@ class DetailsController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$details = Detail::all();
+		$this->layout->content = view::make('details.index', compact('details'));
 	}
 
 	/**
@@ -21,7 +22,7 @@ class DetailsController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		$this->layout->content = view::make('details.create', compact('details'));
 	}
 
 	/**
@@ -32,7 +33,13 @@ class DetailsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$input = Input::all();
+		$input['exit_id']= $details->id;
+		$input['product_id']= 1;
+		Detail::create( $input );
+
+		return Redirect::route('details.show',
+			$details->id)->with('Producto guardado.');
 	}
 
 	/**
@@ -44,7 +51,7 @@ class DetailsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$this->layout->content = view::make('details.show', compact('details'));
 	}
 
 	/**

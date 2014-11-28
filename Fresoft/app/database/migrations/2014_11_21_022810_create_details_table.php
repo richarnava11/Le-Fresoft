@@ -20,7 +20,7 @@ class CreateDetailsTable extends Migration {
 			$table->double('importe');
 
 			$table->integer('exit_id')->unsigned();
-			$table->foreign('exit_id')->references('id')->on('exits')->onDelete('cascade');
+			$table->foreign('exit_id')->references('id')->on('exitts')->onDelete('cascade');
 			$table->integer('product_id')->unsigned();
 			$table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
 			$table->timestamps();
