@@ -10,7 +10,8 @@ class ExitsController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$exits = Exitt::all();
+		$this->layout->content = view::make('exits.index', compact('exits'));
 	}
 
 	/**
@@ -21,7 +22,7 @@ class ExitsController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		$this->layout->content = view::make('exits.create', compact('exits'));
 	}
 
 	/**
@@ -32,7 +33,12 @@ class ExitsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$input = Input::all();
+		$input['user_id']= 1;
+		Exitt::create( $input );
+
+		return Redirect::route('exits.show',
+			$exits->id)->with('Producto guardado.');
 	}
 
 	/**
@@ -44,7 +50,7 @@ class ExitsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$this->layout->content = view::make('exits.show', compact('exits'));
 	}
 
 	/**

@@ -15,3 +15,26 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+	/**Route::model('entrances', 'Entrance');
+	Route::model('exits', 'Exit');
+	Route::model('details', 'Detail');
+
+	Route::bind('entrances',function($value, $route){
+		return Entrance::whereId($value)->first();
+	});
+	Route::bind('exits',function($value, $route){
+		return Exit::whereId($value)->first();
+	});
+	Route::bind('details',function($value, $route){
+		return Detail::whereId($value)->first();
+	});**/
+
+	Route::resource("users", "UsersController");
+	Route::resource("products", "ProductsController");
+	Route::resource("entrances", "EntrancesController");
+	Route::resource("exits", "ExitsController");
+	Route::resource("details", "DetailsController");
+	
+
+
