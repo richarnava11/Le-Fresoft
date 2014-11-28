@@ -7,7 +7,7 @@ class ProductsTableSeeder extends Seeder {
 
 	public function run()
 	{
-		$products = array (['id' => 1, 'nombre' => 'mermelada', 'precio' => 50, 'existencia' => 1, 
+		$products = array (['id' => 1, 'nombre' => 'mermelada', 'precio' => 50, 'existencia' => 50, 
 			'created_at' => new DateTime, 'updated_at' => new DateTime]);
 
 		DB::table('products')->insert($products);
