@@ -23,7 +23,8 @@ class EntrancesController extends \BaseController {
 	 */
 	public function create()
 	{
-		$this->layout->content = view::make('entrances.create', compact('entrances'));
+		$productos = Product::lists('nombre', 'id');
+		$this->layout->content = view::make('entrances.create', compact('productos'));
 	}
 
 	/**
@@ -35,12 +36,10 @@ class EntrancesController extends \BaseController {
 	public function store()
 	{
 		$input = Input::all();
-		$input['product_id']= $entrances->id;
-		$input['user_id']= 1;
+		$input['user_id']= Auth::user()->id;
 		Entrance::create( $input );
 
-		return Redirect::route('entrances.show',
-			$entrances->id)->with('Producto guardado.');
+		return Redirect::route('entrances.index')->with('Producto guardado.');
 	}
 
 	/**

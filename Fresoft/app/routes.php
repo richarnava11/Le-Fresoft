@@ -13,25 +13,9 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('login');
 });
 
-<<<<<<< HEAD
-Route::model('products','Product');
-Route::model('entrances','Entrance');
-Route::model('exits','Exit');
-Route::model('details','Detail');
-
-Route::bind('products',function($value, $route){
-	return Product::whereId($value)->first();
-});
-
-Route::resource("products", "ProductsController");
-Route::resource("entrances","EntrancesController");
-Route::resource("exits","ExistsController");
-Route::resource("details","DetailsController");
-Route::resource("users","UsersController");
-=======
 	/**Route::model('entrances', 'Entrance');
 	Route::model('exits', 'Exit');
 	Route::model('details', 'Detail');
@@ -45,13 +29,27 @@ Route::resource("users","UsersController");
 	Route::bind('details',function($value, $route){
 		return Detail::whereId($value)->first();
 	});**/
+	Route::group(array('before' => 'auth'), function()
+	{
 
-	Route::resource("users", "UsersController");
-	Route::resource("products", "ProductsController");
-	Route::resource("entrances", "EntrancesController");
-	Route::resource("exits", "ExitsController");
-	Route::resource("details", "DetailsController");
+		Route::resource("users", "UsersController");
+		Route::resource("products", "ProductsController");
+		Route::resource("entrances", "EntrancesController");
+		Route::resource("exits", "ExitsController");
+		Route::resource("details", "DetailsController");
+
+		});
+
+		Route::get('login', array('uses' => 'HomeController@showLogin'));
+
+
+		Route::post('login', array('uses' => 'HomeController@doLogin'));
+
+		Route::get('logout', array('uses' => 'HomeController@doLogout'));
+
+	 //fin proteccion de rutas
+
+	
 	
 
->>>>>>> richi
 

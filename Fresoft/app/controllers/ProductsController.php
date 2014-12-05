@@ -20,10 +20,9 @@ class ProductsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function create(Product $product)
+	public function create()
 	{
-		$this->layout->content =
-		View::make('products.create', compact('products'));
+		$this->layout->content = View::make('products.create', compact('products'));
 	}
 
 	/**
@@ -34,61 +33,67 @@ class ProductsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//almacenar el nuevo Producto
-		$input = Input::all();
-		$input ['user_id'] =1;//autor temporal
-		Product::create( $input );
-
-		return Redirect::route('products.index')
-		->with('message', 'El nuevo Producto se ha almacenado ');
+		$product = new Product;
+		$product->nombre = Input::get('nombre');
+		$product->precio = Input::get('precio');
+		$product->save();
+		return Redirect::to('products');
 	}
 
 	/**
 	 * Display the specified resource.
 	 * GET /products/{id}
 	 *
-	 * @param  Product  $product
+	 * @param  int   $id
 	 * @return Response
 	 */
-	public function show(Product  $product)
+	public function show($id)
 	{
-		$this->layout->content = View::make('products.show', compact('products'));
+		//$this->layout->content = View::make('products.show', compact('products'));
 	}
 
 	/**
 	 * Show the form for editing the specified resource.
 	 * GET /products/{id}/edit
 	 *
-	 * @param  Product  $product
+	 * @param  int   $id
 	 * @return Response
 	 */
-	public function edit(Product  $product)
+	public function edit($id)
 	{
-		
+		$product = Product::findId($id);
+		$this->layout->content = View::make('products.edit', compact('product'));
 	}
 
 	/**
 	 * Update the specified resource in storage.
 	 * PUT /products/{id}
 	 *
-	 * @param  Product  $product
+	 * @param  int   $id
 	 * @return Response
 	 */
-	public function update(Product  $product)
+	public function update($id)
 	{
-		//
+		$input = Input::all();
+		$product = Product::find($id);
+		$product->nombre = $input['nombre'];
+		$product->precio = $input['precio'];
+		$product->save();
+		return Redirect::to('products');
 	}
 
 	/**
 	 * Remove the specified resource from storage.
 	 * DELETE /products/{id}
 	 *
-	 * @param  Product  $product
+	 * @param  int   $id
 	 * @return Response
 	 */
-	public function destroy(Product  $product)
+	public function destroy($id)
 	{
-		//
+		$product = Product::find($id);
+		$product->delete();
+		return Redirect::to('products');
 	}
 
 }

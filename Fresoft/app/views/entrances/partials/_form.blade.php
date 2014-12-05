@@ -1,19 +1,14 @@
 <div>
 
+	{{ Form::label('product_id', 'Producto') }}
+	{{ Form::select('product_id',  $productos) }}
+
+
 	<div>
 	{{ Form::label('entradakg', 'EntradaKg:') }}
 	{{ Form::text('entradakg') }}
 	</div>
 
-	<div>
-	{{ Form::label('created_at', 'Fecha:') }}
-	{{ Form::text('created_at') }}
-	</div>
-
-	<div>
-	{{ Form::label('product_id', 'IdProducto:') }}
-	{{ Form::text('product_id') }}
-	</div>
 	<br>
 
 

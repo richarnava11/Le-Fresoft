@@ -20,6 +20,11 @@ class CreateProductsTable extends Migration {
 			$table->string('password');
 			$table->string('email');
 			$table->timestamps();
+
+
+			$table->rememberToken();
+
+			//$table->timestamps();
 		});
 
 
