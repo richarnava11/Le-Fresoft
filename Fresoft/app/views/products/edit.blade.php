@@ -8,5 +8,6 @@
 {{ Form::label('precio', 'Precio:') }}
 {{ Form::text('precio') }}<br/><br/>
 {{ Form::submit('guardar') }}
+<a href="http://localhost:8000/products">Regresar</a>
 {{ Form::close() }}
 @stop

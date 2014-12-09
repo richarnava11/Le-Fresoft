@@ -1,11 +1,6 @@
 <div>
 
 	<div>
-	{{ Form::label('created_at', 'Fecha:') }}
-	{{ Form::text('created_at') }}
-	</div>
-
-	<div>
 	{{ Form::label('importe', 'Importe:') }}
 	{{ Form::text('importe') }}
 	</div>

@@ -14,5 +14,7 @@
 
 	<div>
 	{{ Form::submit($submit_text) }}
+	<a href="http://localhost:8000/entrances">Regresar</a>
+
 	</div>
 </div>

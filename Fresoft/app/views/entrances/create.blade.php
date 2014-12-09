@@ -4,4 +4,5 @@
 {{ Form::model(new Entrance, ['route' => ['entrances.store']]) }}
    @include('entrances/partials/_form', ['submit_text' => 'Registrar Venta'])
 {{ Form::close() }}
+<br/>
 @stop

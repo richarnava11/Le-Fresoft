@@ -24,7 +24,7 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
     <div align="center">
-    <img src="/assets/fresas" height="250" width="250">
+    <!--<img src="/assets/fresas" height="250" width="250">-->
     </div>
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
@@ -40,29 +40,32 @@
       <ul class="nav navbar-nav">
       
         <li class="active"><a href="http://localhost:8000/users"><font color="blue">Usuarios</font></a></li>
+        <li><a href="http://localhost:8000/products"><font color="blue">Productos</font></a></li>
+        <li><a href="http://localhost:8000/entrances"><font color="blue">Entradas</font></a></li>
+
         <!--<li><a href="http://localhost:8000/products"><font color="blue">Productos</font></a></li>-->
-        <li class="product">
+        <!--<li class="product">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><font color="blue">Producto </font><span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
           <li><a href="http://localhost:8000/products/create"><font color="blue">Agregar Productos</font></a></li>
-          <li><a href="http://localhost:8000/products"><font color="blue">Productos</font></a></li>
+          <li><a href="http://localhost:8000/products"><font color="blue">Ver Productos</font></a></li>
           </ul>
-          </li>
+          </li>-->
 
 
-          <li class="entrance">
+          <!--<li class="entrance">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><font color="blue">Entradas </font><span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
           <li><a href="http://localhost:8000/entrances/create"><font color="blue">Agregar Entrada</font></a></li>
-          <li><a href="http://localhost:8000/entrances"><font color="blue">Entradas</font></a></li>
+          <li><a href="http://localhost:8000/entrances"><font color="blue">Ver Entradas</font></a></li>
           </ul>
-          </li>
+          </li>-->
 
           <li class="exit">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><font color="blue">Salidas-Ventas </font><span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><font color="blue">Ventas </font><span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
           <li><a href="http://localhost:8000/exits/create"><font color="blue">Agregar Venta</font></a></li>
-          <li><a href="http://localhost:8000/exits"><font color="blue">Ventas</font></a></li>
+          <li><a href="http://localhost:8000/exits"><font color="blue">Ver Ventas</font></a></li>
           </ul>
           </li>
 
@@ -115,6 +118,7 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<img src="/assets/fresas" height="250" width="250">
 
 <div class="container">
 	<div class="row">

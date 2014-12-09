@@ -12,7 +12,6 @@ class EntrancesController extends \BaseController {
 	{
 		$entrances = Entrance::all();
 		$this->layout->content = view::make('entrances.index', compact('entrances'));
-	
 	}
 
 	/**
@@ -63,7 +62,9 @@ class EntrancesController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$entrance = Entrance::find($id);
+		$productos = Product::lists('nombre', 'id');
+		$this->layout->content = View::make('entrances.edit', compact('entrance','productos'));
 	}
 
 	/**
@@ -75,7 +76,12 @@ class EntrancesController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$input = Input::all();
+		$entrance = Product::find($id);
+		#$entrance->nombre = $input['nombre'];
+		$entrance->entradakg = $input['entradakg'];
+		$entrance->save();
+		return Redirect::to('entrances');
 	}
 
 	/**
@@ -87,7 +93,9 @@ class EntrancesController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$entrance = Entrance::find($id);
+		$entrance->delete();
+		return Redirect::to('entrances');
 	}
 
 }

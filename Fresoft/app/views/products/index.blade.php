@@ -1,7 +1,7 @@
 @section('main')
 	<h2>Lista de Productos</h2>
 	@if ( !$products->count() )
-		Aún no se ha almacenado registro en este blog.
+		Aún no se ha almacenado registro de productos.
 	@else
 		<ul>
 			<table class="table table-striped" style="width: 900px">
@@ -25,32 +25,19 @@
 					<td>
 						<p>{{ $product->existencia }}</p>
 					</td>
-					<td>
-						
-						
-				          
+					<td>				          
 				             {{ Form::open(array('url' => 'products/' . $product->id, 'method' => 'DELETE'))
 							}}
 
 							{{ Form::submit('Eliminar')}}
 							{{ link_to_route('products.edit', 'Editar producto', $product->id)}}
 
-							{{ Form::close() }}
-				          
-				          
-					</td>
-					<td>
-						
+							{{ Form::close() }}				          
 					</td>
 				</tr>
-				@endforeach
+			@endforeach
 			</tbody>
 			<tfoot>
-				<tr>
-					<td>
-							
-					</td>
-				</tr>
 			</tfoot>
 			</table>			
 		</ul>
